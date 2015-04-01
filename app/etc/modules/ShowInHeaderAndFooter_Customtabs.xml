@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <ShowInHeaderAndFooter_Customtabs>
+            <active>true</active>
+            <codePool>local</codePool>
+        </ShowInHeaderAndFooter_Customtabs>
+    </modules>
+</config>

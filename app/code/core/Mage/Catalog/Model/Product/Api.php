@@ -70,7 +70,8 @@ class Mage_Catalog_Model_Product_Api extends Mage_Catalog_Model_Api_Resource
         'small_image_label',
         'thumbnail_label',
         'created_at',
-        'updated_at'
+        'updated_at',
+	    'show_header_footer'
     );
 
     public function __construct()

@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <ShowInHeaderAndFooter_CustomTabs>
+            <version>0.1.0</version>
+        </ShowInHeaderAndFooter_CustomTabs>
+    </modules>
+    <global>
+        <blocks>
+            <customtabs>
+                <class>ShowInHeaderAndFooter_Customtabs_Block</class>
+            </customtabs>
+        </blocks>
+        <models>
+            <customtabs>
+                <class>ShowInHeaderAndFooter_Customtabs_Model</class>
+            </customtabs>
+        </models>
+    </global>
+    <adminhtml>
+        <layout>
+            <updates>
+                <customtabs>
+                    <file>customtabs.xml</file>
+                </customtabs>
+            </updates>
+        </layout>
+        <events>
+            <catalog_product_save_after>
+                <observers>
+                    <ShowInHeaderAndFooter_save_product_data>
+                        <type>singleton</type>
+                        <class>customtabs/observer</class>
+                        <method>saveProductTabData</method>
+                    </ShowInHeaderAndFooter_save_product_data>
+                </observers>
+            </catalog_product_save_after>
+
+            <adminhtml_block_html_before>
+                <observers>
+                    <mymodule>
+                        <!-- Add column to catalog product grid -->
+                        <class>customtabs/observer</class>
+                        <method>onBlockHtmlBefore</method>
+                    </mymodule>
+                </observers>
+            </adminhtml_block_html_before>
+            <eav_collection_abstract_load_before>
+                <observers>
+                    <mymodule>
+                        <!-- Add column to product list -->
+                        <class>customtabs/observer</class>
+                        <method>onEavLoadBefore</method>
+                    </mymodule>
+                </observers>
+            </eav_collection_abstract_load_before>
+
+        </events>
+    </adminhtml>
+</config>
